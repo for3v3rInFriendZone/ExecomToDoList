@@ -16,14 +16,14 @@
         android:id="@+id/username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="@string/username"
+        android:hint="@string/usernameText"
         android:width="250dp"/>
 
     <EditText
         android:id="@+id/password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="@string/password"
+        android:hint="@string/passwordText"
         android:width="250dp"/>
 
     <Button
