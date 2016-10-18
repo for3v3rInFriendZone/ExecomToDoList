@@ -1,8 +1,15 @@
 <resources>
     <string name="app_name">ExecomToDoList</string>
-    <string name="usernameText">Korisničko ime</string>
-    <string name="passwordText">Lozinka</string>
-    <string name="login"> Uloguj se</string>
+    <string name="usernameText">Username</string>
+    <string name="passwordText">Password</string>
+    <string name="login"> Login</string>
     <string name="greskaTekst"> </string>
     <string name="welcomeUser"></string>
+    <string name="listTitle"> TO DO tasks:</string>
+    <string name="title">Title</string>
+    <string name="description">Description</string>
+    <string name="InsertTitle"> Title </string>
+    <string name="InsertDes"> Description </string>
+    <string name="infoTask"> New task</string>
+    <string name="submitTask"> Submit task</string>
 </resources>

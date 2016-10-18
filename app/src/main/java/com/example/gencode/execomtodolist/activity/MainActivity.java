@@ -13,6 +13,7 @@ import com.example.gencode.execomtodolist.DAO.TaskDao;
 import com.example.gencode.execomtodolist.DAO.UserDao;
 import com.example.gencode.execomtodolist.R;
 import com.example.gencode.execomtodolist.database.DatabaseManager;
+import com.example.gencode.execomtodolist.model.Task;
 import com.example.gencode.execomtodolist.model.User;
 
 import java.util.List;
@@ -31,15 +32,14 @@ public class MainActivity extends AppCompatActivity {
 
         this.initDB();
         this.insertUsers();
-
-        Login();
+        this.login();
 
     }
 
     /**
-     * Metoda koja obradjuje klik na dugme login.
+     * Method for a login button click event.
      */
-    private void Login() {
+    private void login() {
         Button login = (Button) findViewById(R.id.login);
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Metoda koja proverava da li uneti kredencijali postoje u bazi.
+     * Method for a user credential validation.
      * @param username
      * @param password
      */
@@ -76,11 +76,11 @@ public class MainActivity extends AppCompatActivity {
                 return;
             }
         }
-        errorText.setText("Korisničko ime ili lozinka su pogrešni.");
+        errorText.setText("Username or password is invalid.");
     }
 
     /**
-     * Inicijalizacija baze podataka prilikom pokretanja aplikacije.
+     * Init of database.
      */
     private void initDB()
     {
@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Unos korisnika, radi lakseg rada sa aplikacijom.
+     * Some users, for easier use of app.
      */
     private void insertUsers(){
         User user1 = new User("Djavo", "666");
@@ -98,7 +98,14 @@ public class MainActivity extends AppCompatActivity {
 
         userDao.create(user1);
         userDao.create(user2);
-        Log.d("ORMLITEDEMO", "User1 CREATED!!!");
+
+        Task task1 = new Task(user1, "naslov1", "opis232", false);
+        Task task2 = new Task(user1, "naslov2", "opis3232", false);
+
+        taskDao.create(task1);
+        taskDao.create(task2);
+
+        Log.d("ORMLITEDEMO", "User1 and User2 and Task1 and Task2 CREATED!!!");
     }
 
 }
