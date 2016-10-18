@@ -3,4 +3,6 @@
     <string name="usernameText">Korisničko ime</string>
     <string name="passwordText">Lozinka</string>
     <string name="login"> Uloguj se</string>
+    <string name="greskaTekst"> </string>
+    <string name="welcomeUser"></string>
 </resources>

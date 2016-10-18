@@ -32,4 +32,13 @@
         android:layout_height="wrap_content"
         android:text="@string/login"
         android:layout_gravity="center"/>
+
+    <TextView
+        android:id="@+id/errorText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/greskaTekst"
+        android:textColor="#e60000"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"/>
 </LinearLayout>
