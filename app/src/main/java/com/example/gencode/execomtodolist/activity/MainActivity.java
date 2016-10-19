@@ -8,14 +8,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-
 import com.example.gencode.execomtodolist.DAO.TaskDao;
 import com.example.gencode.execomtodolist.DAO.UserDao;
 import com.example.gencode.execomtodolist.R;
+import com.example.gencode.execomtodolist.database.DatabaseHelper;
 import com.example.gencode.execomtodolist.database.DatabaseManager;
 import com.example.gencode.execomtodolist.model.Task;
 import com.example.gencode.execomtodolist.model.User;
-
 import java.util.List;
 
 
@@ -35,6 +34,14 @@ public class MainActivity extends AppCompatActivity {
         this.login();
 
     }
+
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        this.deleteDatabase(DatabaseHelper.DATABASE_NAME);
+    }
+
 
     /**
      * Method for a login button click event.
@@ -71,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
                 errorText.setText("");
 
                 Intent intent = new Intent(this, TaskViewActivity.class);
-                intent.putExtra("username", username);
+                intent.putExtra("user", user.getId());
                 startActivity(intent);
                 return;
             }
@@ -99,13 +106,17 @@ public class MainActivity extends AppCompatActivity {
         userDao.create(user1);
         userDao.create(user2);
 
-        Task task1 = new Task(user1, "naslov1", "opis232", false);
-        Task task2 = new Task(user1, "naslov2", "opis3232", false);
+
+        Task task1 = new Task(user1, "nasov1", "opis1", false);
+        Task task2 = new Task(user1, "nasov2", "opiswdqwd", false);
+        Task task3 = new Task(user2, "naslov3", "opis232", false);
 
         taskDao.create(task1);
         taskDao.create(task2);
+        taskDao.create(task3);
 
-        Log.d("ORMLITEDEMO", "User1 and User2 and Task1 and Task2 CREATED!!!");
+
+        Log.d("ORMLITEDEMO", "User1 and User2 CREATED!!!");
     }
 
 }

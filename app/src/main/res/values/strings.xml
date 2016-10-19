@@ -12,4 +12,5 @@
     <string name="InsertDes"> Description </string>
     <string name="infoTask"> New task</string>
     <string name="submitTask"> Submit task</string>
+    <string name="errorTextTask"></string>
 </resources>
