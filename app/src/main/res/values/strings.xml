@@ -13,4 +13,8 @@
     <string name="infoTask"> New task</string>
     <string name="submitTask"> Submit task</string>
     <string name="errorTextTask"></string>
+    <string name="titleTask"></string>
+    <string name="desTask"></string>
+    <string name="donetask">Done</string>
+    <string name="remove_task">Remove task</string>
 </resources>

@@ -1,6 +1,7 @@
 package com.example.gencode.execomtodolist.activity;
 
 import android.content.Intent;
+import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,19 +16,23 @@ import com.example.gencode.execomtodolist.database.DatabaseHelper;
 import com.example.gencode.execomtodolist.database.DatabaseManager;
 import com.example.gencode.execomtodolist.model.Task;
 import com.example.gencode.execomtodolist.model.User;
+
+import java.io.Serializable;
 import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
 
-    UserDao userDao = null;
-    TaskDao taskDao = null;
+    private UserDao userDao = null;
+    private TaskDao taskDao = null;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
 
         this.initDB();
         this.insertUsers();

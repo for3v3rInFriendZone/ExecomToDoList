@@ -77,6 +77,7 @@ public class TaskAddActivity extends AppCompatActivity {
     private void persistTask(EditText title, EditText description) throws SQLException {
         taskDao = new TaskDao(this);
         userDao = new UserDao(this);
+
         currentUser = (User) userDao.findById(getIntent().getExtras().getLong("user"));
 
         Task task = new Task(currentUser, title.getText().toString(), description.getText().toString(), false);

@@ -29,4 +29,5 @@ dependencies {
     compile 'com.j256.ormlite:ormlite-android:4.48'
     compile group: 'org.xerial', name: 'sqlite-jdbc', version: '3.8.11.2'
     testCompile 'junit:junit:4.12'
+    compile 'com.google.android.gms:play-services-appindexing:8.4.0'
 }
