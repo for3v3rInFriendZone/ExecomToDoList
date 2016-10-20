@@ -8,21 +8,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-
 import com.example.gencode.execomtodolist.DAO.TaskDao;
 import com.example.gencode.execomtodolist.DAO.UserDao;
 import com.example.gencode.execomtodolist.R;
-import com.example.gencode.execomtodolist.database.DatabaseManager;
 import com.example.gencode.execomtodolist.model.Task;
 import com.example.gencode.execomtodolist.model.User;
-
 import java.sql.SQLException;
 
 public class TaskAddActivity extends AppCompatActivity {
 
     private User currentUser = null;
-    private TaskDao taskDao = null;
-    private UserDao userDao = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +27,9 @@ public class TaskAddActivity extends AppCompatActivity {
         submitTask();
     }
 
+    /**
+     * Onclick event for a submit task button.
+     */
     private void submitTask() {
         Button submitTask = (Button)findViewById(R.id.submitTask);
 
@@ -47,6 +45,10 @@ public class TaskAddActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Method for adding a new task to current user.
+     * @throws SQLException
+     */
     private void addTaskToUser() throws SQLException {
         EditText titleTask = (EditText) findViewById(R.id.taskTitle);
         EditText desTask = (EditText) findViewById(R.id.taskDescription);
@@ -58,11 +60,14 @@ public class TaskAddActivity extends AppCompatActivity {
         intent.putExtra("user", currentUser.getId());
         startActivity(intent);
         return;
-
-       // Log.d("WWWWW----->", titleTask.getText() + " - - - " + desTask.getText());
     }
 
 
+    /**
+     * Validation of a task form.
+     * @param titleTask
+     * @return
+     */
     private boolean taskValidation(EditText titleTask) {
         TextView errorTaskText = (TextView) findViewById(R.id.errorTextTask);
 
@@ -74,15 +79,21 @@ public class TaskAddActivity extends AppCompatActivity {
         return false;
     }
 
+    /**
+     * Method for creating new task for a current user (doesnt work!!!)
+     * @param title
+     * @param description
+     * @throws SQLException
+     */
     private void persistTask(EditText title, EditText description) throws SQLException {
-        taskDao = new TaskDao(this);
-        userDao = new UserDao(this);
+
+        UserDao userDao = new UserDao(this);
+        TaskDao taskDao = new TaskDao(this);
 
         currentUser = (User) userDao.findById(getIntent().getExtras().getLong("user"));
-
         Task task = new Task(currentUser, title.getText().toString(), description.getText().toString(), false);
-
         taskDao.create(task);
-        Log.i("asdas", "wqdw");
+
+        Log.e("dasdas", "dasdaa");
     }
 }

@@ -1,7 +1,6 @@
 package com.example.gencode.execomtodolist.activity;
 
 import android.content.Intent;
-import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,8 +15,6 @@ import com.example.gencode.execomtodolist.database.DatabaseHelper;
 import com.example.gencode.execomtodolist.database.DatabaseManager;
 import com.example.gencode.execomtodolist.model.Task;
 import com.example.gencode.execomtodolist.model.User;
-
-import java.io.Serializable;
 import java.util.List;
 
 
@@ -32,8 +29,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-
         this.initDB();
         this.insertUsers();
         this.login();
@@ -46,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
         super.onStop();
         this.deleteDatabase(DatabaseHelper.DATABASE_NAME);
     }
-
 
     /**
      * Method for a login button click event.
@@ -102,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Some users, for easier use of app.
+     * Method for creating users and tasks, for easier use of app.
      */
     private void insertUsers(){
         User user1 = new User("Djavo", "666");
@@ -120,8 +114,6 @@ public class MainActivity extends AppCompatActivity {
         taskDao.create(task2);
         taskDao.create(task3);
 
-
-        Log.d("ORMLITEDEMO", "User1 and User2 CREATED!!!");
     }
 
 }

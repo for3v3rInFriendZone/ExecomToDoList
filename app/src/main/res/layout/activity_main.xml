@@ -12,6 +12,13 @@
     android:layout_gravity="center"
     tools:context="com.example.gencode.execomtodolist.activity.MainActivity">
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/execom" />
+
     <EditText
         android:id="@+id/username"
         android:layout_width="wrap_content"
